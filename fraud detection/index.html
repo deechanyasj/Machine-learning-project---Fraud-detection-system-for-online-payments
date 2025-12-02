@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Fraud Detection System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🛡️Fraud Detection System</h1>
+        <p>Real-time ML-powered fraud detection for secure transactions</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Protect Your Financial Transactions</h2>
+            <p>Advanced machine learning algorithms detect fraud in real-time across UPI, Credit Cards & E-commerce</p>
+            <div class="stats">
+                <div class="stat">
+                    <h3>99.2%</h3>
+                    <p>Accuracy</p>
+                </div>
+                <div class="stat">
+                    <h3>&lt;50ms</h3>
+                    <p>Response Time</p>
+                </div>
+                <div class="stat">
+                    <h3>24/7</h3>
+                    <p>Monitoring</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h3>🔍 Transaction Risk Analysis</h3>
+            <form id="fraudForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="amount">💰 Transaction Amount ($)</label>
+                        <input type="number" id="amount" step="0.01" min="0" required>
+                        <div class="feature-indicator" id="amountIndicator"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="merchant">🏪 Merchant Risk Score (1-10)</label>
+                        <input type="number" id="merchant" min="1" max="10" required>
+                        <div class="feature-indicator" id="merchantIndicator"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">🌍 Location Match</label>
+                        <select id="location" required>
+                            <option value="1">✅ Location Matches</option>
+                            <option value="0">❌ Location Mismatch</option>
+                        </select>
+                        <div class="feature-indicator" id="locationIndicator"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">🕐 Transaction Hour (0-23)</label>
+                        <input type="number" id="time" min="0" max="23" required>
+                        <div class="feature-indicator" id="timeIndicator"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userId">👤 User ID (Optional)</label>
+                        <input type="text" id="userId" placeholder="e.g., user_12345">
+                        <div class="feature-indicator" id="userIndicator"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="deviceId">📱 Device ID (Optional)</label>
+                        <input type="text" id="deviceId" placeholder="e.g., device_abc123">
+                        <div class="feature-indicator" id="deviceIndicator"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ipAddress">🌐 IP Address (Optional)</label>
+                        <input type="text" id="ipAddress" placeholder="e.g., 192.168.1.1">
+                        <div class="feature-indicator" id="ipIndicator"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userAgent">🖥️ User Agent (Optional)</label>
+                        <input type="text" id="userAgent" placeholder="Browser/Device information">
+                        <div class="feature-indicator" id="agentIndicator"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sessionId">🔑 Session ID (Optional)</label>
+                        <input type="text" id="sessionId" placeholder="e.g., sess_xyz789">
+                        <div class="feature-indicator" id="sessionIndicator"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentMethod">💳 Payment Method</label>
+                        <select id="paymentMethod" required>
+                            <option value="credit_card">Credit Card</option>
+                            <option value="debit_card">Debit Card</option>
+                            <option value="upi">UPI</option>
+                            <option value="wallet">Digital Wallet</option>
+                            <option value="crypto">Cryptocurrency</option>
+                            <option value="bank_transfer">Bank Transfer</option>
+                        </select>
+                        <div class="feature-indicator" id="paymentIndicator"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="transactionType">💼 Transaction Type</label>
+                        <select id="transactionType" required>
+                            <option value="purchase">Purchase</option>
+                            <option value="transfer">Money Transfer</option>
+                            <option value="withdrawal">ATM Withdrawal</option>
+                            <option value="deposit">Deposit</option>
+                            <option value="refund">Refund</option>
+                            <option value="subscription">Subscription</option>
+                        </select>
+                        <div class="feature-indicator" id="typeIndicator"></div>
+                    </div>
+                </div>
+                
+                <div class="advanced-controls">
+                    <h4>🚀 Advanced Features</h4>
+                    <div class="control-grid">
+                        <button type="button" class="feature-btn" onclick="simulateTimeAnalysis()">🕒 Time Pattern Analysis</button>
+                        <button type="button" class="feature-btn" onclick="simulateGeoLocation()">🌍 Geo-Location Check</button>
+                        <button type="button" class="feature-btn" onclick="simulateMerchantRisk()">🏪 Merchant Risk Assessment</button>
+                        <button type="button" class="feature-btn" onclick="simulateSpendingPattern()">📊 Spending Pattern Analysis</button>
+                        <button type="button" class="feature-btn" onclick="simulateDeviceTracking()">📱 Device Tracking</button>
+                        <button type="button" class="feature-btn" onclick="simulateBehavioralAnalysis()">🧠 Behavioral Analytics</button>
+                        <button type="button" class="feature-btn" onclick="runMLModels()">🤖 ML Model Analysis</button>
+                        <button type="button" class="feature-btn" onclick="simulateRealTimeScoring()">⚡ Real-time Risk Scoring</button>
+                        <button type="button" class="feature-btn" onclick="simulateBiometricAuth()">🔍 Biometric Authentication</button>
+                        <button type="button" class="feature-btn" onclick="simulateVoiceAnalysis()">🎤 Voice Pattern Analysis</button>
+                        <button type="button" class="feature-btn" onclick="simulateKeystrokeDynamics()">⌨️ Keystroke Dynamics</button>
+                        <button type="button" class="feature-btn" onclick="simulateAIThreatHunting()">🎯 AI Threat Hunting</button>
+                    </div>
+                </div>
+                
+                <div class="ai-assistant">
+                    <h4>🤖 AI Fraud Assistant</h4>
+                    <div class="chat-container">
+                        <div id="chatMessages" class="chat-messages"></div>
+                        <div class="chat-input">
+                            <input type="text" id="chatInput" placeholder="Ask about fraud patterns, risk factors, or get recommendations...">
+                            <button onclick="sendChatMessage()">💬 Send</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button type="submit" class="analyze-btn">🔍 Complete Fraud Analysis</button>
+                    <button type="button" class="sample-btn" onclick="loadSample()">📋 Load High-Risk Sample</button>
+                    <button type="button" class="clear-btn" onclick="clearForm()">🗑️ Clear Form</button>
+                </div>
+            </form>
+        </section>
+        
+        <section class="live-monitoring" id="liveMonitoring" style="display: none;">
+            <h3>📡 Live Monitoring Dashboard</h3>
+            <div id="monitoringContent"></div>
+        </section>
+        
+        <section class="advanced-dashboard" id="advancedDashboard">
+            <h3>📊 Advanced Analytics Dashboard</h3>
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" onclick="showTab('realtime')">Real-time Analytics</button>
+                <button class="tab-btn" onclick="showTab('ml')">ML Models</button>
+                <button class="tab-btn" onclick="showTab('threats')">Threat Intelligence</button>
+                <button class="tab-btn" onclick="showTab('network')">Network Analysis</button>
+                <button class="tab-btn" onclick="showTab('blockchain')">Blockchain Verification</button>
+            </div>
+            
+            <div class="tab-content" id="realtime-tab">
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h4>📈 Transaction Velocity</h4>
+                        <canvas id="velocityChart" width="300" height="150"></canvas>
+                        <div class="chart-controls">
+                            <button onclick="updateVelocityChart()">Refresh Data</button>
+                        </div>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>🌍 Geographic Risk Map</h4>
+                        <div id="riskMap" class="risk-map"></div>
+                        <div class="map-legend">
+                            <span class="legend-item high">High Risk</span>
+                            <span class="legend-item medium">Medium Risk</span>
+                            <span class="legend-item low">Low Risk</span>
+                        </div>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>🕰️ Time-based Patterns</h4>
+                        <div id="timePatterns" class="time-heatmap"></div>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>💰 Amount Distribution</h4>
+                        <canvas id="amountChart" width="300" height="150"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="ml-tab" style="display: none;">
+                <div class="ml-models-grid">
+                    <div class="model-card">
+                        <h4>🤖 Logistic Regression Model</h4>
+                        <div class="model-metrics">
+                            <div class="metric"><span>Accuracy:</span> <span id="lr-accuracy">94.7%</span></div>
+                            <div class="metric"><span>Precision:</span> <span id="lr-precision">92.3%</span></div>
+                            <div class="metric"><span>Recall:</span> <span id="lr-recall">96.1%</span></div>
+                            <div class="metric"><span>F1-Score:</span> <span id="lr-f1">94.2%</span></div>
+                        </div>
+                        <button onclick="retrainModel('logistic')">Retrain Model</button>
+                    </div>
+                    <div class="model-card">
+                        <h4>🧠 Neural Network (Autoencoder)</h4>
+                        <div class="model-metrics">
+                            <div class="metric"><span>Anomaly Detection:</span> <span id="ae-anomaly">89.5%</span></div>
+                            <div class="metric"><span>Reconstruction Error:</span> <span id="ae-error">0.023</span></div>
+                            <div class="metric"><span>Threshold:</span> <span id="ae-threshold">0.15</span></div>
+                        </div>
+                        <button onclick="retrainModel('autoencoder')">Retrain Model</button>
+                    </div>
+                    <div class="model-card">
+                        <h4>🌲 Random Forest Ensemble</h4>
+                        <div class="model-metrics">
+                            <div class="metric"><span>Accuracy:</span> <span id="rf-accuracy">96.2%</span></div>
+                            <div class="metric"><span>Feature Importance:</span> <span id="rf-features">Amount (0.34)</span></div>
+                            <div class="metric"><span>Trees:</span> <span id="rf-trees">100</span></div>
+                        </div>
+                        <button onclick="retrainModel('randomforest')">Retrain Model</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="threats-tab" style="display: none;">
+                <div class="threat-intelligence">
+                    <div class="threat-feed">
+                        <h4>🚨 Live Threat Feed</h4>
+                        <div id="threatFeed" class="feed-container"></div>
+                    </div>
+                    <div class="ip-reputation">
+                        <h4>🌐 IP Reputation Check</h4>
+                        <input type="text" id="ipInput" placeholder="Enter IP address">
+                        <button onclick="checkIPReputation()">Check Reputation</button>
+                        <div id="ipResults"></div>
+                    </div>
+                    <div class="blacklist-check">
+                        <h4>🗞️ Blacklist Monitoring</h4>
+                        <div id="blacklistStatus"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="network-tab" style="display: none;">
+                <div class="network-analysis">
+                    <div class="network-graph">
+                        <h4>🕸️ Transaction Network</h4>
+                        <div id="networkViz" class="network-container"></div>
+                    </div>
+                    <div class="connection-analysis">
+                        <h4>🔗 Connection Analysis</h4>
+                        <div id="connectionResults"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="blockchain-tab" style="display: none;">
+                <div class="blockchain-verification">
+                    <div class="crypto-analysis">
+                        <h4>₿ Cryptocurrency Analysis</h4>
+                        <input type="text" id="walletInput" placeholder="Enter wallet address">
+                        <button onclick="analyzeWallet()">Analyze Wallet</button>
+                        <div id="walletResults"></div>
+                    </div>
+                    <div class="transaction-tracing">
+                        <h4>🔍 Transaction Tracing</h4>
+                        <div id="tracingResults"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="result" id="result" style="display: none;">
+            <h3>📊 Analysis Results</h3>
+            <div id="resultContent"></div>
+        </section>
+        
+        <section class="demo-area" id="demoArea" style="display: none;">
+            <h3>🎯 Feature Demonstration</h3>
+            <div id="demoContent"></div>
+            <button class="close-demo" onclick="closeDemoArea()">✖️ Close</button>
+        </section>
+
+        <section class="features">
+            <h3>🚀 Interactive Detection Features</h3>
+            <div class="feature-grid">
+                <div class="feature clickable-feature" onclick="demonstrateTimeAnalysis()">
+                    <div class="feature-icon">🕒</div>
+                    <h4>Time Analysis</h4>
+                    <p>Detects unusual transaction timings and high-frequency patterns</p>
+                    <div class="click-hint">Click to demonstrate</div>
+                </div>
+                <div class="feature clickable-feature" onclick="demonstrateGeoLocation()">
+                    <div class="feature-icon">🌍</div>
+                    <h4>Geo-Location Tracking</h4>
+                    <p>Compares user location with transaction location for mismatches</p>
+                    <div class="click-hint">Click to demonstrate</div>
+                </div>
+                <div class="feature clickable-feature" onclick="demonstrateMerchantRisk()">
+                    <div class="feature-icon">🏪</div>
+                    <h4>Merchant Risk Assessment</h4>
+                    <p>Assigns risk levels based on merchant fraud history and patterns</p>
+                    <div class="click-hint">Click to demonstrate</div>
+                </div>
+                <div class="feature clickable-feature" onclick="demonstrateSpendingPattern()">
+                    <div class="feature-icon">📊</div>
+                    <h4>Spending Pattern Recognition</h4>
+                    <p>Learns normal user behavior and flags abnormal transactions</p>
+                    <div class="click-hint">Click to demonstrate</div>
+                </div>
+                <div class="feature clickable-feature" onclick="demonstrateDeviceTracking()">
+                    <div class="feature-icon">📱</div>
+                    <h4>Device & IP Tracking</h4>
+                    <p>Monitors new devices, browsers, and IP address changes</p>
+                    <div class="click-hint">Click to demonstrate</div>
+                </div>
+                <div class="feature clickable-feature" onclick="demonstrateBehavioralAnalysis()">
+                    <div class="feature-icon">🧠</div>
+                    <h4>Behavioral Analytics</h4>
+                    <p>Identifies unusual user actions and rapid transaction patterns</p>
+                    <div class="click-hint">Click to demonstrate</div>
+                </div>
+                <div class="feature clickable-feature" onclick="demonstrateMLModels()">
+                    <div class="feature-icon">🤖</div>
+                    <h4>ML Models</h4>
+                    <p>Logistic Regression + Autoencoders for comprehensive detection</p>
+                    <div class="click-hint">Click to demonstrate</div>
+                </div>
+                <div class="feature clickable-feature" onclick="demonstrateSecureProcessing()">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Secure Processing</h4>
+                    <p>Encrypted data handling with privacy protection mechanisms</p>
+                    <div class="click-hint">Click to demonstrate</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Advanced Fraud Detection System | Securing Digital Transactions Worldwide</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="advanced-features.js"></script>
+</body>
+</html>
